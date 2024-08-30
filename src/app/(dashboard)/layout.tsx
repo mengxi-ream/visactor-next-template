@@ -1,4 +1,3 @@
-import Container from "@/components/container";
 import TopNav from "@/components/nav/top-nav";
 
 export default function DashboardLayout({
@@ -9,9 +8,7 @@ export default function DashboardLayout({
   return (
     <>
       <TopNav title="Dashboard" />
-      <main>
-        <Container>{children}</Container>
-      </main>
+      <main>{children}</main>
     </>
   );
 }

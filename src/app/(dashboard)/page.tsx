@@ -1,14 +1,15 @@
-import dynamic from "next/dynamic";
+import Metrics from "./_components/metrics";
 
-const Test = dynamic(() => import("./_components/test"), {
-  loading: () => <div>Loading...</div>,
-  ssr: false,
-});
+// const Test = dynamic(() => import("./_components/test"), {
+//   loading: () => <div>Loading...</div>,
+//   ssr: false,
+// });
 
 export default function Home() {
   return (
-    <section>
-      <Test />
-    </section>
+    <div>
+      {/* <Test /> */}
+      <Metrics />
+    </div>
   );
 }
