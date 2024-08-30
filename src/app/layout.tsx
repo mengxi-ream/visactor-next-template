@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Gabarito } from "next/font/google";
 import SideNav from "@/components/nav/side-nav";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -8,8 +9,8 @@ import { Providers } from "./providers";
 const gabarito = Gabarito({ subsets: ["latin"], variable: "--font-gabarito" });
 
 export const metadata: Metadata = {
-  title: "VisActor Next Template",
-  description: "Template for VisActor and Next.js",
+  title: siteConfig.title,
+  description: siteConfig.description,
 };
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body className={cn("bg-background font-sans", gabarito.variable)}>
         <Providers>
           <div className="flex min-h-[100svh]">
-            <SideNav className="shrink-0" />
+            <SideNav />
             <div className="flex-grow overflow-auto">{children}</div>
           </div>
         </Providers>

@@ -8,7 +8,7 @@ import defaultDarkTheme from "@visactor/vchart-theme/public/dark.json";
 import defaultLightTheme from "@visactor/vchart-theme/public/light.json";
 // import mobileDarkTheme from "@visactor/vchart-theme/public/mobileDark.json";
 import mobileLightTheme from "@visactor/vchart-theme/public/mobileLight.json";
-import { customDarkTheme, customLightTheme } from "@/lib/constants";
+import { customDarkTheme, customLightTheme } from "@/config/chart-theme";
 
 type ChartTheme = "light" | "dark" | "system";
 
@@ -97,6 +97,7 @@ const registerTheme = () => {
     ...customDarkTheme,
     fontFamily: font,
   };
+  // TODO: hover color bug when change theme
   ThemeManager.registerTheme(formalThemeName("light"), lightTheme);
   // console.log("all theme 1", ThemeManager.themeExist("dark"));
   ThemeManager.registerTheme(formalThemeName("dark"), darkTheme);

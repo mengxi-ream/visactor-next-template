@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function User() {
   return (
-    <div className="flex h-16 items-center border-b border-border px-3">
-      <div className="flex w-full items-center justify-between rounded-md p-1 hover:bg-slate-200 dark:hover:bg-slate-800">
+    <div className="flex h-16 items-center border-b border-border px-2">
+      <div className="flex w-full items-center justify-between rounded-md px-2 py-1 hover:bg-slate-200 dark:hover:bg-slate-800">
         <div className="flex items-center">
           <Image
             src="/avatar.png"
