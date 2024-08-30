@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "visactor-next-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,18 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@visactor/react-vchart": "^1.12.1",
+    "@visactor/vchart": "^1.12.1",
+    "@visactor/vchart-theme": "^1.12.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.436.0",
+    "next": "14.2.7",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.7"
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.7",
+    "eslint-config-prettier": "^9.1.0",
     "postcss": "^8",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7"
+    "typescript": "^5.5.4"
   }
 }
