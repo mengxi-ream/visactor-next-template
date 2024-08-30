@@ -1,6 +1,6 @@
-import MetricCard from "@/components/chart/metric-card";
 import Container from "@/components/container";
 import { metrics } from "@/data/metrics";
+import MetricCard from "./components/metric-card";
 
 export default function Metrics() {
   return (

@@ -1,4 +1,5 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { chartTitle } from "@/components/primitives";
 import { cn } from "@/lib/utils";
 import { MetricCardProps } from "@/types/type";
 
@@ -9,14 +10,16 @@ export default function MetricCard({
   className,
 }: MetricCardProps & { className?: string }) {
   return (
-    <div className={cn("flex flex-col", className)}>
-      <h2 className="mb-1 text-sm text-muted-foreground">{title}</h2>
+    <section className={cn("flex flex-col", className)}>
+      <h2 className={cn(chartTitle({ color: "mute", size: "sm" }), "mb-1")}>
+        {title}
+      </h2>
       <div className="flex items-center gap-2">
         <span className="text-xl font-medium">{value}</span>
         <ChangeIndicator change={change} />
       </div>
       <div className="text-xs text-muted-foreground">Compare to last month</div>
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import TopNav from "@/components/nav/top-nav";
+import { TopNav } from "@/components/nav";
 
 export default function TicketLayout({
   children,
