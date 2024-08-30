@@ -2,9 +2,12 @@
 
 import { useTheme } from "next-themes";
 import { createContext, useContext, useEffect, useState } from "react";
+import { isMobile } from "react-device-detect";
 import { ITheme, ThemeManager } from "@visactor/vchart";
 import defaultDarkTheme from "@visactor/vchart-theme/public/dark.json";
 import defaultLightTheme from "@visactor/vchart-theme/public/light.json";
+import mobileDarkTheme from "@visactor/vchart-theme/public/mobileDark.json";
+import mobileLightTheme from "@visactor/vchart-theme/public/mobileLight.json";
 import { customDarkTheme, customLightTheme } from "@/lib/constants";
 
 type ChartTheme = "light" | "dark" | "system";
@@ -81,12 +84,16 @@ const registerTheme = () => {
     .getPropertyValue("--font-gabarito")
     .trim();
   const lightTheme: Partial<ITheme> = {
-    ...(defaultLightTheme as unknown as Partial<ITheme>),
+    ...(isMobile
+      ? (mobileLightTheme as unknown as Partial<ITheme>)
+      : (defaultLightTheme as unknown as Partial<ITheme>)),
     ...customLightTheme,
     fontFamily: font,
   };
   const darkTheme: Partial<ITheme> = {
-    ...(defaultDarkTheme as unknown as Partial<ITheme>),
+    ...(isMobile
+      ? (mobileDarkTheme as unknown as Partial<ITheme>)
+      : (defaultDarkTheme as unknown as Partial<ITheme>)),
     ...customDarkTheme,
     fontFamily: font,
   };

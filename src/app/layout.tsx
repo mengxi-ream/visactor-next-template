@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Gabarito } from "next/font/google";
+import SideNav from "@/components/nav/side-nav";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -19,7 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-background font-sans", gabarito.variable)}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex min-h-[100svh]">
+            <SideNav className="flex-shrink-0" />
+            <div className="flex-grow overflow-auto">{children}</div>
+          </div>
+        </Providers>
       </body>
     </html>
   );

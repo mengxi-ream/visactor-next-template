@@ -49,9 +49,8 @@ const spec = {
 };
 
 export default function Test() {
-
   return (
-    <div>
+    <div className="max-w-full">
       <VChart spec={spec} />
     </div>
   );

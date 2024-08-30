@@ -22,6 +22,12 @@ const config = {
       fontFamily: {
         sans: ["var(--font-gabarito)", ...fontFamily.sans],
       },
+      screens: {
+        phone: "440px",
+        tablet: "768px",
+        laptop: "1024px",
+        desktop: "1280px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
