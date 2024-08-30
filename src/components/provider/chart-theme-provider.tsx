@@ -27,7 +27,9 @@ export function ChartThemeProvider({
 
   useEffect(() => {
     registerTheme();
+  }, []);
 
+  useEffect(() => {
     const updateTheme = () => {
       if (modeTheme === "light" || modeTheme === "dark") {
         setTheme(modeTheme);
