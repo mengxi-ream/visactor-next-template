@@ -1,6 +1,7 @@
 "use client";
 
 import { VChart } from "@visactor/react-vchart";
+import { useChartTheme } from "@/components/provider/chart-theme-provider";
 
 const spec = {
   type: "line",
@@ -49,9 +50,21 @@ const spec = {
 };
 
 export default function Test() {
+  const { theme } = useChartTheme();
+  // console.log("theme", theme);
+
+  // console.log(
+  //   "theme current background",
+  //   ThemeManager.getCurrentTheme().background,
+  // );
+
+  // console.log("theme current font", ThemeManager.getCurrentTheme().fontFamily);
+
   return (
-    <div className="max-w-full">
-      <VChart spec={spec} />
-    </div>
+    theme && (
+      <div className="max-w-full">
+        <VChart spec={spec} />
+      </div>
+    )
   );
 }
