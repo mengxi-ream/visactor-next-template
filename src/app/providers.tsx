@@ -1,6 +1,6 @@
 "use client";
 
-// import { ChartThemeProvider } from "@/components/provider/chart-theme-provider";
+import { ChartThemeProvider } from "@/components/provider/chart-theme-provider";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -11,8 +11,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      {/* <ChartThemeProvider>{children}</ChartThemeProvider> */}
-      {children}
+      <ChartThemeProvider>{children}</ChartThemeProvider>
     </ThemeProvider>
   );
 }

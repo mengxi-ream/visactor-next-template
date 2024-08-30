@@ -1,14 +1,18 @@
-// import { ThemeToggle } from "@/components/theme-toggle";
+import dynamic from "next/dynamic";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 
-// import Test from "./_components/test";
+const Test = dynamic(() => import("./_components/test"), {
+  loading: () => <div>Loading...</div>,
+  ssr: false,
+});
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {/* <ThemeToggle /> */}
+      <ThemeToggle />
       <Button>Hello World</Button>
-      {/* <Test /> */}
+      <Test />
     </main>
   );
 }
