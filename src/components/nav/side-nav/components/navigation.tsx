@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export default function Navigation() {
   const pathname = usePathname();
   return (
-    <nav className="flex flex-grow flex-col space-y-1 p-2">
+    <nav className="flex flex-grow flex-col gap-y-1 p-2">
       {navigations.map((navigation) => {
         const Icon = navigation.icon;
         return (

@@ -105,6 +105,7 @@ const spec: IBarChartSpec = {
     style: {
       // TODO: move this radius to theme
       cornerRadius: [8, 8, 8, 8],
+      // TODO: legend 交互仍然不对，这种写法太 hacky
       y1: (datum, ctx) => {
         // @ts-expect-error lack type definition
         return ctx.getRegion().getLayoutRect().height;

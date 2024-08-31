@@ -3,7 +3,7 @@ import { Gabarito } from "next/font/google";
 import { SideNav } from "@/components/nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import "./globals.css";
+import "@/style/globals.css";
 import { Providers } from "./providers";
 
 const gabarito = Gabarito({ subsets: ["latin"], variable: "--font-gabarito" });
