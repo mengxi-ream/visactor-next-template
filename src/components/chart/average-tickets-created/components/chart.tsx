@@ -56,6 +56,7 @@ const spec: IBarChartSpec = {
           // console.log(ctx.valueToX([datum.State]));
           // console.log(ctx.xBandwidth());
           // console.log(ctx.getRegion());
+          // @ts-expect-error lack type definition
           return ctx.valueToX([datum.date]) + ctx.xBandwidth() / 2;
         },
         y: (datum, ctx) => {
@@ -73,6 +74,7 @@ const spec: IBarChartSpec = {
             return acc;
           }, 0);
           return (
+            // @ts-expect-error lack type definition
             ctx.valueToY([totalCount]) - (datum.type === "resolved" ? 0 : 20)
           );
         },
@@ -104,6 +106,7 @@ const spec: IBarChartSpec = {
       // TODO: move this radius to theme
       cornerRadius: [8, 8, 8, 8],
       y1: (datum, ctx) => {
+        // @ts-expect-error lack type definition
         return ctx.getRegion().getLayoutRect().height;
       },
       zIndex: (datum) => {
