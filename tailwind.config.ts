@@ -24,10 +24,10 @@ const config = {
         sans: ["var(--font-gabarito)", ...fontFamily.sans],
       },
       screens: {
-        phone: "440px",
-        tablet: "768px",
-        laptop: "1024px",
-        desktop: "1280px",
+        phone: "390px",
+        tablet: "750px",
+        laptop: "1000px",
+        desktop: "1250px",
       },
       colors: {
         border: "hsl(var(--border))",
