@@ -27,7 +27,7 @@ const config = {
         phone: "370px",
         tablet: "750px",
         laptop: "1000px",
-        desktop: "1250px",
+        desktop: "1200px",
       },
       colors: {
         border: "hsl(var(--border))",
