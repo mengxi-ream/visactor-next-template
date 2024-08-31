@@ -1,9 +1,10 @@
-import { chartTitle } from "@/components/primitives";
+import { FilePlus2 } from "lucide-react";
+import ChartTitle from "../components/chart-title";
 
 export default function AverageTicketsCreated() {
   return (
     <section>
-      <h2 className={chartTitle()}>Average Tickets Created</h2>
+      <ChartTitle title="Average Tickets Created" icon={FilePlus2} />
     </section>
   );
 }
