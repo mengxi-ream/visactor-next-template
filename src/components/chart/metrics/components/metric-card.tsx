@@ -29,8 +29,8 @@ function ChangeIndicator({ change }: { change: number }) {
       className={cn(
         "flex items-center rounded-sm px-1 py-0.5 text-xs text-muted-foreground",
         change > 0
-          ? "bg-green-50 text-green-500 dark:bg-green-950 dark:text-green-400"
-          : "bg-red-50 text-red-500 dark:bg-red-950 dark:text-red-400",
+          ? "bg-green-50 text-green-500 dark:bg-green-950"
+          : "bg-red-50 text-red-500 dark:bg-red-950",
       )}
     >
       {change > 0 ? "+" : ""}
