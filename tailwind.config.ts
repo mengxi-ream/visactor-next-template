@@ -24,7 +24,7 @@ const config = {
         sans: ["var(--font-gabarito)", ...fontFamily.sans],
       },
       screens: {
-        phone: "390px",
+        phone: "370px",
         tablet: "750px",
         laptop: "1000px",
         desktop: "1250px",
