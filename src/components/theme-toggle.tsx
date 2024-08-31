@@ -12,14 +12,20 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
+  const [showBadge, setShowBadge] = React.useState(false);
+
+  React.useEffect(() => {
+    setShowBadge(theme === "system");
+  }, [theme]);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" className="relative">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          {showBadge && <AutoThemeBadge />}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -35,5 +41,13 @@ export function ThemeToggle() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+  );
+}
+
+function AutoThemeBadge() {
+  return (
+    <span className="absolute -right-2 -top-2 flex h-4 items-center rounded-full bg-secondary px-1.5 text-[0.6rem] text-secondary-foreground ring-2 ring-background duration-300 animate-in zoom-in-50">
+      auto
+    </span>
   );
 }
