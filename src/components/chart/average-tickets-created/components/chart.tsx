@@ -59,12 +59,12 @@ const spec: IBarChartSpec = {
           return ctx.valueToX([datum.date]) + ctx.xBandwidth() / 2;
         },
         y: (datum, ctx) => {
-          console.log("datum", datum);
-          console.log(ctx.valueToY([datum.count]));
-          console.log(ctx.yBandwidth());
-          console.log(ctx.getRegion());
-          console.log(ctx.getRegion().getBoundsInRect());
-          console.log(ctx.getRegion().getLayoutRect());
+          // console.log("datum", datum);
+          // console.log(ctx.valueToY([datum.count]));
+          // console.log(ctx.yBandwidth());
+          // console.log(ctx.getRegion());
+          // console.log(ctx.getRegion().getBoundsInRect());
+          // console.log(ctx.getRegion().getLayoutRect());
           const date = datum.date;
           const totalCount = data.reduce((acc, curr) => {
             if (curr.date === date) {
