@@ -2,14 +2,14 @@
 
 import { VChart } from "@visactor/react-vchart";
 import { ICirclePackingChartSpec } from "@visactor/vchart";
-import { conversions } from "@/data/conversions";
+import { convertions } from "@/data/convertions";
 import { formatNumber } from "@/lib/utils";
 
 const spec: ICirclePackingChartSpec = {
   data: [
     {
       id: "data",
-      values: conversions,
+      values: convertions,
     },
   ],
   type: "circlePacking",
