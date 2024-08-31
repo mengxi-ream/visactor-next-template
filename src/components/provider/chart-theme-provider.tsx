@@ -6,7 +6,7 @@ import { isMobile } from "react-device-detect";
 import { ITheme, ThemeManager } from "@visactor/vchart";
 import defaultDarkTheme from "@visactor/vchart-theme/public/dark.json";
 import defaultLightTheme from "@visactor/vchart-theme/public/light.json";
-// import mobileDarkTheme from "@visactor/vchart-theme/public/mobileDark.json";
+import mobileDarkTheme from "@visactor/vchart-theme/public/mobileDark.json";
 import mobileLightTheme from "@visactor/vchart-theme/public/mobileLight.json";
 import { customDarkTheme, customLightTheme } from "@/config/chart-theme";
 
@@ -92,7 +92,7 @@ const registerTheme = () => {
   };
   const darkTheme: Partial<ITheme> = {
     ...(isMobile
-      ? (defaultDarkTheme as unknown as Partial<ITheme>)
+      ? (mobileDarkTheme as unknown as Partial<ITheme>)
       : (defaultDarkTheme as unknown as Partial<ITheme>)),
     ...customDarkTheme,
     fontFamily: font,
