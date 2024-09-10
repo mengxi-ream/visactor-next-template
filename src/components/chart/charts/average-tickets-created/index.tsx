@@ -1,6 +1,6 @@
 import { FilePlus2 } from "lucide-react";
-import ChartTitle from "../components/chart-title";
-import Chart from "./components/chart";
+import ChartTitle from "../../components/chart-title";
+import Chart from "./chart";
 
 export default function AverageTicketsCreated() {
   return (

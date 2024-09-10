@@ -24,7 +24,6 @@ const spec: ICirclePackingChartSpec = {
       stroke: false,
       visible: (d) => d.depth === 0,
       text: (d) => formatNumber(d.value),
-      // ? DISCUSS: 下面的方程在数值没有巨大长度变化的时候始终成立，但是。。。
       fontSize: (d) => d.radius / 2,
       dy: (d) => d.radius / 8,
     },

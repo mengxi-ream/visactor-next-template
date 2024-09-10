@@ -1,8 +1,8 @@
 import { CirclePercent } from "lucide-react";
 import { convertions } from "@/data/convertions";
 import { formatNumber } from "@/lib/utils";
-import ChartTitle from "../components/chart-title";
-import Chart from "./components/chart";
+import Chart from "./chart";
+import ChartTitle from "../../components/chart-title";
 
 export default function Convertions() {
   return (
