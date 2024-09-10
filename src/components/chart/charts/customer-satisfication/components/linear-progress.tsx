@@ -76,10 +76,27 @@ export default function LinearProgress({
   label,
   color,
   percentage,
+  icon,
 }: {
   label: string;
   color: string;
   percentage: number;
+  icon: React.ReactNode;
 }) {
-  return <VChart spec={getSpec(label, color, percentage)} />;
+  return (
+    <div>
+      <div className="mb-1 flex items-center gap-x-2">
+        {icon}
+        <div>
+          <div className="text-xs text-muted-foreground">{label}</div>
+          <div className="text-xl font-medium">
+            {numberToPercentage(percentage)}
+          </div>
+        </div>
+      </div>
+      <div className="relative">
+        <VChart spec={getSpec(label, color, percentage)} />
+      </div>
+    </div>
+  );
 }
