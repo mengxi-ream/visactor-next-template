@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { chartTitle } from "@/components/primitives";
 import { cn } from "@/lib/utils";
-import { MetricCardProps } from "@/types/type";
+import type { MetricCardProps } from "@/types/type";
 
 export default function MetricCard({
   title,

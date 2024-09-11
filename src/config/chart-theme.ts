@@ -1,4 +1,4 @@
-import { ITheme } from "@visactor/vchart";
+import type { ITheme } from "@visactor/vchart";
 
 const customCommonTheme: Partial<ITheme> = {};
 export const customDarkTheme: Partial<ITheme> = {

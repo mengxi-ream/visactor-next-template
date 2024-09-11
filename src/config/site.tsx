@@ -1,4 +1,4 @@
-import { Gauge, LucideIcon, MessagesSquare } from "lucide-react";
+import { Gauge, type LucideIcon, MessagesSquare } from "lucide-react";
 
 export type SiteConfig = typeof siteConfig;
 export type Navigation = {

@@ -1,4 +1,4 @@
-import { IconSvgProps } from "@/types/type";
+import type { IconSvgProps } from "@/types/type";
 
 export const VisActorLogo: React.FC<IconSvgProps> = ({
   size = 28,
