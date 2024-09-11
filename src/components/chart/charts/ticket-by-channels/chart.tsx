@@ -3,6 +3,7 @@
 import { type IGaugeChartSpec, VChart } from "@visactor/react-vchart";
 import type { Datum } from "@visactor/vchart/esm/typings";
 import { ticketByChannels } from "@/data/ticket-by-channels";
+import { formatNumber } from "@/lib/utils";
 
 const data = ticketByChannels.reduce(
   (acc, curr) => {
@@ -118,7 +119,7 @@ const spec: IGaugeChartSpec = {
       offsetY: "64%",
       title: {
         style: {
-          text: totalTickets,
+          text: formatNumber(totalTickets),
           fontSize: 28,
         },
       },
