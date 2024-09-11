@@ -1,7 +1,7 @@
 "use client";
 
 import { VChart } from "@visactor/react-vchart";
-import { IBarChartSpec } from "@visactor/vchart";
+import type { IBarChartSpec } from "@visactor/vchart";
 import { averageTicketsCreated } from "@/data/average-tickets-created";
 
 const data = averageTicketsCreated
@@ -118,6 +118,5 @@ const spec: IBarChartSpec = {
 };
 
 export default function Chart() {
-  // TODO: fix sometimes all bubbles becomes blue, when change theme, this must happen
   return <VChart spec={spec} />;
 }

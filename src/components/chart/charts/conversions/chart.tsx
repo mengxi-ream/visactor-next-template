@@ -1,7 +1,7 @@
 "use client";
 
 import { VChart } from "@visactor/react-vchart";
-import { ICirclePackingChartSpec } from "@visactor/vchart";
+import type { ICirclePackingChartSpec } from "@visactor/vchart";
 import { convertions } from "@/data/convertions";
 import { formatNumber } from "@/lib/utils";
 

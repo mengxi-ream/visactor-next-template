@@ -1,8 +1,8 @@
 "use client";
 
 import { VChart } from "@visactor/react-vchart";
-import { ILinearProgressChartSpec } from "@visactor/vchart";
-import { Datum } from "@visactor/vchart/esm/typings";
+import type { ILinearProgressChartSpec } from "@visactor/vchart";
+import type { Datum } from "@visactor/vchart/esm/typings";
 import { numberToPercentage } from "@/lib/utils";
 
 const getSpec = (

@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { chartTitle } from "@/components/primitives";
 
 export default function ChartTitle({

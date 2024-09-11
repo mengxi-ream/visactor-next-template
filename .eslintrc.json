@@ -9,6 +9,15 @@
   "plugins": ["@typescript-eslint"],
   "root": true,
   "rules": {
-    "no-console": ["error"]
+    "no-console": ["error"],
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "inline-type-imports"
+      }
+    ]
   }
 }
