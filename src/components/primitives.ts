@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const chartTitle = cva("w-full", {
+export const chartTitle = cva("", {
   variants: {
     color: {
       mute: "text-muted-foreground",

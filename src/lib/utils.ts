@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatNumber(num: number) {
+export function addThousandsSeparator(num: number) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 

@@ -1,25 +1,17 @@
 "use client";
 
+import { isWithinInterval } from "date-fns";
+import { useAtomValue } from "jotai";
+import type { DateRange } from "react-day-picker";
 import { VChart } from "@visactor/react-vchart";
 import type { IBarChartSpec } from "@visactor/vchart";
-import { averageTicketsCreated } from "@/data/average-tickets-created";
+import {
+  type TicketCreated,
+  averageTicketsCreated,
+} from "@/data/average-tickets-created";
+import { dateRangeAtom } from "@/lib/atoms";
 
-const data = averageTicketsCreated
-  .flatMap((item) => [
-    {
-      date: item.date,
-      type: "resolved",
-      count: item.resolved,
-    },
-    {
-      date: item.date,
-      type: "increased",
-      count: item.created - item.resolved,
-    },
-  ])
-  .slice(0, 14);
-
-const spec: IBarChartSpec = {
+const generateSpec = (data: TicketCreated[]): IBarChartSpec => ({
   type: "bar",
   data: [
     {
@@ -34,65 +26,6 @@ const spec: IBarChartSpec = {
   legends: {
     visible: true,
   },
-  extensionMark: [
-    {
-      type: "text",
-      dataId: "barData",
-      zIndex: 5,
-      visible: true,
-      state: {
-        hover: {
-          style: {
-            opacity: 1,
-          },
-        },
-      },
-      style: {
-        opacity: 0,
-        text: (datum) => {
-          return datum.count;
-        },
-        x: (datum, ctx) => {
-          // console.log(ctx.valueToX([datum.State]));
-          // console.log(ctx.xBandwidth());
-          // console.log(ctx.getRegion());
-          // @ts-expect-error lack type definition
-          return ctx.valueToX([datum.date]) + ctx.xBandwidth() / 2;
-        },
-        y: (datum, ctx) => {
-          // console.log("datum", datum);
-          // console.log(ctx.valueToY([datum.count]));
-          // console.log(ctx.yBandwidth());
-          // console.log(ctx.getRegion());
-          // console.log(ctx.getRegion().getBoundsInRect());
-          // console.log(ctx.getRegion().getLayoutRect());
-          const date = datum.date;
-          const totalCount = data.reduce((acc, curr) => {
-            if (curr.date === date) {
-              return acc + curr.count;
-            }
-            return acc;
-          }, 0);
-          return (
-            // @ts-expect-error lack type definition
-            ctx.valueToY([totalCount]) - (datum.type === "resolved" ? 0 : 20)
-          );
-        },
-      },
-    },
-  ],
-  // totalLabel: {
-  //   visible: true,
-  //   state: {
-  //     hover: {
-  //       visible: false,
-  //       stroke: "#000",
-  //       style: {
-  //         text: "",
-  //       },
-  //     },
-  //   },
-  // },
   bar: {
     // The state style of bar
     state: {
@@ -115,8 +48,37 @@ const spec: IBarChartSpec = {
       },
     },
   },
+});
+
+const generateData = (dateRange: DateRange | undefined) => {
+  if (!dateRange?.from || !dateRange?.to) return [];
+
+  const startDate = dateRange.from as Date;
+  const endDate = dateRange.to as Date;
+
+  return averageTicketsCreated
+    .filter((item) => {
+      const date = new Date(item.date);
+      return isWithinInterval(date, { start: startDate, end: endDate });
+    })
+    .flatMap((item) => [
+      {
+        date: item.date,
+        type: "resolved",
+        count: item.resolved,
+      },
+      {
+        date: item.date,
+        type: "increased",
+        count: item.created - item.resolved,
+      },
+    ]);
 };
 
 export default function Chart() {
+  const dateRange = useAtomValue(dateRangeAtom);
+  const data = generateData(dateRange);
+  console.log(data);
+  const spec = generateSpec(data);
   return <VChart spec={spec} />;
 }

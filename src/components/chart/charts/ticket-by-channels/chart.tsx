@@ -3,7 +3,7 @@
 import { type IGaugeChartSpec, VChart } from "@visactor/react-vchart";
 import type { Datum } from "@visactor/vchart/esm/typings";
 import { ticketByChannels } from "@/data/ticket-by-channels";
-import { formatNumber } from "@/lib/utils";
+import { addThousandsSeparator } from "@/lib/utils";
 
 const data = ticketByChannels.reduce(
   (acc, curr) => {
@@ -65,7 +65,7 @@ const spec: IGaugeChartSpec = {
   pinBackground: {
     visible: false,
   },
-  radiusField: "type",
+  radiusField: "value",
   categoryField: "type",
   valueField: "value",
   outerRadius: 1,
@@ -119,7 +119,7 @@ const spec: IGaugeChartSpec = {
       offsetY: "64%",
       title: {
         style: {
-          text: formatNumber(totalTickets),
+          text: addThousandsSeparator(totalTickets),
           fontSize: 28,
         },
       },

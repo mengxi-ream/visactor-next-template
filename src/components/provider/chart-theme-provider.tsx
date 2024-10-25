@@ -83,6 +83,7 @@ const registerTheme = () => {
     .getComputedStyle(document.body)
     .getPropertyValue("--font-gabarito")
     .trim();
+  // TODO: use deep merge
   const lightTheme: Partial<ITheme> = {
     ...(isMobile
       ? (mobileLightTheme as unknown as Partial<ITheme>)
