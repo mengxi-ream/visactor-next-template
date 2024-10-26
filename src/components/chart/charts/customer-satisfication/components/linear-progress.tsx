@@ -60,12 +60,8 @@ const getSpec = (
         tick: { visible: false },
         label: {
           formatMethod: () => numberToPercentage(percentage),
-          style: {
-            // TODO: fix dark mode color
-            fill: "#868686",
-          },
         },
-        maxWidth: "60%", // 配置坐标轴的最大空间
+        maxWidth: "60%",
         width: 36,
       },
     ],

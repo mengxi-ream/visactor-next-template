@@ -49,7 +49,6 @@ const spec: IGaugeChartSpec = {
     },
   },
   padding: {
-    // ? Right thing to do?
     top: -110,
     right: 0,
     bottom: 0,
@@ -101,7 +100,6 @@ const spec: IGaugeChartSpec = {
       ],
     },
   },
-  // @ts-expect-error TODO: Fix this
   indicator: [
     {
       visible: true,
