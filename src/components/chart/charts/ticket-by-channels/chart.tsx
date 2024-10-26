@@ -126,5 +126,7 @@ const spec: IGaugeChartSpec = {
 };
 
 export default function Chart() {
+  // TODO: the length of bars change incorrectly when toggle the legend
+  // TODO: gauge pointer mistakenly appears
   return <VChart spec={spec} />;
 }
