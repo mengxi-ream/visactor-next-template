@@ -22,6 +22,9 @@ const generateSpec = (data: TicketMetric[]): IBarChartSpec => ({
     visible: false,
   },
   stack: false,
+  tooltip: {
+    trigger: ["click", "hover"],
+  },
   bar: {
     state: {
       hover: {

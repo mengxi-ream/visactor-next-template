@@ -7,11 +7,6 @@ import {
 } from "@/components/chart-blocks";
 import Container from "@/components/container";
 
-// const Test = dynamic(() => import("./_components/test"), {
-//   loading: () => <div>Loading...</div>,
-//   ssr: false,
-// });
-
 export default function Home() {
   return (
     <div>
