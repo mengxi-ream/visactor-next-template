@@ -4,7 +4,7 @@ import {
   CustomerSatisfication,
   Metrics,
   TicketByChannels,
-} from "@/components/chart";
+} from "@/components/chart-blocks";
 import Container from "@/components/container";
 
 // const Test = dynamic(() => import("./_components/test"), {
