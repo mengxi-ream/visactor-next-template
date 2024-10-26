@@ -56,6 +56,5 @@ const spec: ICirclePackingChartSpec = {
 };
 
 export default function Chart() {
-  // TODO: fix sometimes all bubbles becomes blue, when change theme, this must happen
   return <VChart spec={spec} />;
 }
