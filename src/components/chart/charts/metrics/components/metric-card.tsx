@@ -1,14 +1,18 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { chartTitle } from "@/components/primitives";
 import { cn } from "@/lib/utils";
-import type { MetricCardProps } from "@/types/type";
 
 export default function MetricCard({
   title,
   value,
   change,
   className,
-}: MetricCardProps & { className?: string }) {
+}: {
+  title: string;
+  value: string;
+  change: number;
+  className?: string;
+}) {
   return (
     <section className={cn("flex flex-col", className)}>
       <h2 className={cn(chartTitle({ color: "mute", size: "sm" }), "mb-1")}>

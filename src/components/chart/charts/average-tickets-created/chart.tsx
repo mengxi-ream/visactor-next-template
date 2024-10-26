@@ -5,13 +5,11 @@ import { useAtomValue } from "jotai";
 import type { DateRange } from "react-day-picker";
 import { VChart } from "@visactor/react-vchart";
 import type { IBarChartSpec } from "@visactor/vchart";
-import {
-  type TicketCreated,
-  averageTicketsCreated,
-} from "@/data/average-tickets-created";
-import { dateRangeAtom } from "@/lib/atoms";
+import { averageTicketsCreated } from "@/data/average-tickets-created";
+import { dateRangeAtom, ticketChartDataAtom } from "@/lib/atoms";
+import type { TicketMetric } from "@/types/types";
 
-const generateSpec = (data: TicketCreated[]): IBarChartSpec => ({
+const generateSpec = (data: TicketMetric[]): IBarChartSpec => ({
   type: "bar",
   data: [
     {
@@ -22,10 +20,11 @@ const generateSpec = (data: TicketCreated[]): IBarChartSpec => ({
   xField: "date",
   yField: "count",
   seriesField: "type",
-  stack: true,
+  padding: 0,
   legends: {
     visible: true,
   },
+  stack: false,
   bar: {
     // The state style of bar
     state: {
@@ -39,10 +38,10 @@ const generateSpec = (data: TicketCreated[]): IBarChartSpec => ({
       // TODO: move this radius to theme
       cornerRadius: [8, 8, 8, 8],
       // TODO: legend 交互仍然不对，这种写法太 hacky
-      y1: (datum, ctx) => {
-        // @ts-expect-error lack type definition
-        return ctx.getRegion().getLayoutRect().height;
-      },
+      // y1: (datum, ctx) => {
+      //   // @ts-expect-error lack type definition
+      //   return ctx.getRegion().getLayoutRect().height;
+      // },
       zIndex: (datum) => {
         return datum.type === "resolved" ? 2 : 1;
       },
@@ -50,35 +49,8 @@ const generateSpec = (data: TicketCreated[]): IBarChartSpec => ({
   },
 });
 
-const generateData = (dateRange: DateRange | undefined) => {
-  if (!dateRange?.from || !dateRange?.to) return [];
-
-  const startDate = dateRange.from as Date;
-  const endDate = dateRange.to as Date;
-
-  return averageTicketsCreated
-    .filter((item) => {
-      const date = new Date(item.date);
-      return isWithinInterval(date, { start: startDate, end: endDate });
-    })
-    .flatMap((item) => [
-      {
-        date: item.date,
-        type: "resolved",
-        count: item.resolved,
-      },
-      {
-        date: item.date,
-        type: "increased",
-        count: item.created - item.resolved,
-      },
-    ]);
-};
-
 export default function Chart() {
-  const dateRange = useAtomValue(dateRangeAtom);
-  const data = generateData(dateRange);
-  console.log(data);
-  const spec = generateSpec(data);
+  const ticketChartData = useAtomValue(ticketChartDataAtom);
+  const spec = generateSpec(ticketChartData);
   return <VChart spec={spec} />;
 }

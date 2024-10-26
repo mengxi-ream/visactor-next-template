@@ -1,10 +1,4 @@
-export type TicketCreated = {
-  date: string;
-  created: number;
-  resolved: number;
-};
-
-export const averageTicketsCreated: TicketCreated[] = [
+export const averageTicketsCreated = [
   { date: "2023-11-15", created: 4324, resolved: 2342 },
   { date: "2023-11-16", created: 3534, resolved: 2013 },
   { date: "2023-11-17", created: 3890, resolved: 2156 },

@@ -4,8 +4,8 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
-export type MetricCardProps = {
-  title: string;
-  value: string;
-  change: number;
+export type TicketMetric = {
+  date: string;
+  type: "created" | "resolved";
+  count: number;
 };
