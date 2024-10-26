@@ -4,7 +4,7 @@ import type { DateRange } from "react-day-picker";
 import { averageTicketsCreated } from "@/data/average-tickets-created";
 import type { TicketMetric } from "@/types/types";
 
-const defaultStartDate = new Date(2023, 10, 18);
+const defaultStartDate = new Date(2023, 11, 18);
 
 export const dateRangeAtom = atom<DateRange | undefined>({
   from: defaultStartDate,
