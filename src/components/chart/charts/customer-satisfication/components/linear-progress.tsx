@@ -61,7 +61,7 @@ const getSpec = (
         label: {
           formatMethod: () => numberToPercentage(percentage),
           style: {
-            // fill zinc-600
+            // TODO: fix dark mode color
             fill: "#868686",
           },
         },
