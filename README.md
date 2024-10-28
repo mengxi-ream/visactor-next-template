@@ -2,6 +2,8 @@
 
 A modern dashboard template built with [VisActor](https://visactor.io/) and Next.js, featuring a beautiful UI and rich data visualization components.
 
+[Live Demo](https://visactor-next-template.vercel.app/)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mengxi-ream/visactor-next-template)
 
 ## Features
