@@ -30,9 +30,7 @@ const generateSpec = (data: TicketMetric[]): IBarChartSpec => ({
       hover: {
         outerBorder: {
           distance: 2,
-          lineWidth: 1,
-          // TODO: stroke value match theme
-          stroke: "#000",
+          lineWidth: 2,
         },
       },
     },

@@ -2,12 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { createContext, useContext, useEffect, useState } from "react";
-import { isMobile } from "react-device-detect";
 import { type ITheme, ThemeManager } from "@visactor/vchart";
-import defaultDarkTheme from "@visactor/vchart-theme/public/dark.json";
-import defaultLightTheme from "@visactor/vchart-theme/public/light.json";
-import mobileDarkTheme from "@visactor/vchart-theme/public/mobileDark.json";
-import mobileLightTheme from "@visactor/vchart-theme/public/mobileLight.json";
 import { customDarkTheme, customLightTheme } from "@/config/chart-theme";
 
 type ChartTheme = "light" | "dark" | "system";
@@ -36,14 +31,14 @@ export function ChartThemeProvider({
     const updateTheme = () => {
       if (modeTheme === "light" || modeTheme === "dark") {
         setTheme(modeTheme);
-        ThemeManager.setCurrentTheme(formalThemeName(modeTheme));
+        ThemeManager.setCurrentTheme(modeTheme);
       } else if (modeTheme === "system") {
         const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
           .matches
           ? "dark"
           : "light";
         setTheme("system");
-        ThemeManager.setCurrentTheme(formalThemeName(systemTheme));
+        ThemeManager.setCurrentTheme(systemTheme);
       }
     };
 
@@ -83,25 +78,14 @@ const registerTheme = () => {
     .getComputedStyle(document.body)
     .getPropertyValue("--font-gabarito")
     .trim();
-  // TODO: use deep merge
   const lightTheme: Partial<ITheme> = {
-    ...(isMobile
-      ? (mobileLightTheme as unknown as Partial<ITheme>)
-      : (defaultLightTheme as unknown as Partial<ITheme>)),
     ...customLightTheme,
     fontFamily: font,
   };
   const darkTheme: Partial<ITheme> = {
-    ...(isMobile
-      ? (mobileDarkTheme as unknown as Partial<ITheme>)
-      : (defaultDarkTheme as unknown as Partial<ITheme>)),
     ...customDarkTheme,
     fontFamily: font,
   };
-  ThemeManager.registerTheme(formalThemeName("light"), lightTheme);
-  ThemeManager.registerTheme(formalThemeName("dark"), darkTheme);
-};
-
-const formalThemeName = (theme: ChartTheme) => {
-  return `custom${theme.charAt(0).toUpperCase() + theme.slice(1)}`;
+  ThemeManager.registerTheme("light", lightTheme);
+  ThemeManager.registerTheme("dark", darkTheme);
 };
