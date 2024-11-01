@@ -1,6 +1,9 @@
 "use client";
 
-import { type IGaugeChartSpec, VChart } from "@visactor/react-vchart";
+import {
+  type IPieChartSpec,
+  VChart,
+} from "@visactor/react-vchart";
 import type { Datum } from "@visactor/vchart/esm/typings";
 import { ticketByChannels } from "@/data/ticket-by-channels";
 import { addThousandsSeparator } from "@/lib/utils";
@@ -19,66 +22,8 @@ const data = ticketByChannels.reduce(
 
 const totalTickets = data.reduce((acc, curr) => acc + curr.value, 0);
 
-const spec: IGaugeChartSpec = {
-  type: "gauge",
-  data: [
-    {
-      id: "pointer",
-      values: [
-        {
-          type: "A",
-          value: 0.6,
-        },
-      ],
-    },
-    {
-      id: "segment",
-      values: data,
-    },
-  ],
-  gauge: {
-    type: "gauge",
-    dataId: "segment",
-    categoryField: "type",
-    valueField: "value",
-    seriesField: "type",
-    segment: {
-      style: {
-        cornerRadius: 6,
-      },
-    },
-  },
-  padding: {
-    top: -110,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  },
-  pointer: {
-    type: "path",
-    visible: false,
-  },
-  pin: {
-    visible: false,
-  },
-  pinBackground: {
-    visible: false,
-  },
-  radiusField: "value",
-  categoryField: "type",
-  valueField: "value",
-  outerRadius: 1,
-  innerRadius: 0.88,
-  startAngle: -190,
-  endAngle: 10,
-  centerY: "90%",
-  axes: [
-    {
-      type: "linear",
-      orient: "angle",
-      visible: false,
-    },
-  ],
+const spec: IPieChartSpec = {
+  type: "pie",
   legends: [
     {
       type: "discrete",
@@ -86,6 +31,26 @@ const spec: IGaugeChartSpec = {
       orient: "bottom",
     },
   ],
+  data: [
+    {
+      id: "id0",
+      values: ticketByChannels,
+    },
+  ],
+  valueField: "value",
+  categoryField: "type",
+  outerRadius: 1,
+  innerRadius: 0.88,
+  startAngle: -180,
+  padAngle: 0.6,
+  endAngle: 0,
+  centerY: "80%",
+  layoutRadius: "auto",
+  pie: {
+    style: {
+      cornerRadius: 6,
+    },
+  },
   tooltip: {
     trigger: ["click", "hover"],
     mark: {
