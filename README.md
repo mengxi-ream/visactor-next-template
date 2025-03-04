@@ -29,6 +29,8 @@ A modern dashboard template built with [VisActor](https://visactor.io/) and Next
 
 You can deploy this template to Vercel by clicking the button above, or clone this repository and run it locally.
 
+[Github Repo](https://github.com/mengxi-ream/visactor-next-template)
+
 1. Clone this repository
 
 ```bash
